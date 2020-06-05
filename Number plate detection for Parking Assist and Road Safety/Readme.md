@@ -9,4 +9,4 @@
 
 ## Final Output
 ![Image of Yaktocat]
-(https://github.com/v-senthil/profile/blob/master/Number%20plate%20detection%20for%20Parking%20Assist%20and%20Road%20Safety/Output/Final_output.png)
+(https://github.com/v-senthil/profile/Number%20plate%20detection%20for%20Parking%20Assist%20and%20Road%20Safety/Output/Final_output.png)
