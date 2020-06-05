@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Form Style 10</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a class="active" href="form-style-10.html">SIGN UP</a></li>
+    <li><a href="show.html">LOGIN</a></li>
+    <li><a href="admin.html">ADMIN</a></li>
+</ul>
+
+
+
+<div class="form-style-10">
+<h1>Sign Up Now!<span>Sign up and tell us what you think of the site!</span></h1>
+
+<form method="post" action="form1.php">
+	
+    <div class="section"><span>1</span>First Name & Address</div>
+    <div class="inner-wrap">
+        <label>Your Full Name <input type="text" name="field1" required /></label>
+        <label>Address <textarea name="field2" required></textarea></label>
+    </div>
+
+    <div class="section"><span>2</span>Email & Phone</div>
+    <div class="inner-wrap">
+        <label>Email Address <input type="email" name="field3" required /></label>
+        <label>Phone Number <input type="text" name="field4" required/></label>
+    </div>
+
+    <div class="section"><span>3</span>Personal Details</div>
+        <div class="inner-wrap">
+        <label>Date of Birth<input type="Date" name="field5" required/></label>
+        <label>Age <input type="Age" min="0" max="30" name="field6" required/></label>
+    </div>
+        
+    <div class="section"><span>4</span>Other Details</div>
+        <div class="inner-wrap">
+        <label>Gender <input type="text" name="field7" required/></label>
+        <label> ID <input type="text" name="field13" required/></label>
+    </div>   
+
+    <div class="section"><span>5</span>College Details</div>
+        <div class="inner-wrap">
+        <label>Department <input type="text" name="field8" required/></label>
+        <label>College Name <input type="text" name="field9" required/></label>
+    </div>  
+
+    <div class="section"><span>6</span>Passwords</div>
+        <div class="inner-wrap">
+        <label>Password <input type="password" name="field10" required/></label>
+        <label>Confirm Password <input type="password" name="field11" required/></label>
+    </div> 
+  
+    <div class="button-section">
+     <input type="submit" name="field12" />
+     <span class="privacy-policy"><input type="checkbox" name="field13" required>You agree to our Terms and Policy. </span>
+    </div>
+    
+</form>
+</div>
+
+</body>
+</html>
