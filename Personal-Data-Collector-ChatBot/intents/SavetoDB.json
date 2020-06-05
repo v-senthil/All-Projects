@@ -1,0 +1,156 @@
+{
+  "id": "c0d1cd71-d8c6-45e4-8b63-11732e80413e",
+  "name": "SavetoDB",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "Read",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "id": "bed4c929-7ca9-4ca8-8cfe-3dc43890e6e7",
+          "required": true,
+          "dataType": "@sys.any",
+          "name": "Name",
+          "value": "$name",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "What\u0027s your good name?"
+            },
+            {
+              "lang": "en",
+              "value": "May I have your name?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        },
+        {
+          "id": "afee34ea-dbdf-4a94-a4e6-90863c08d759",
+          "required": true,
+          "dataType": "@sys.number-integer",
+          "name": "Phonenumber",
+          "value": "$number",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "May I have your mobile number?"
+            },
+            {
+              "lang": "en",
+              "value": "Phone Number please?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        },
+        {
+          "id": "67eb8538-7529-42c8-b93e-f599a96f6cd7",
+          "required": true,
+          "dataType": "@sys.email",
+          "name": "Email",
+          "value": "$Email",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Enter your Email"
+            },
+            {
+              "lang": "en",
+              "value": "May I have your Email Address?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        },
+        {
+          "id": "f48f0313-624c-4b20-a546-0a059431c1ae",
+          "required": true,
+          "dataType": "@sys.any",
+          "name": "Address",
+          "value": "$address",
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        },
+        {
+          "id": "274a4400-bfed-4c9a-a406-66bdc7f71160",
+          "required": true,
+          "dataType": "@sys.any",
+          "name": "Admin_number",
+          "value": "$admin_no",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "What\u0027s your admin number?"
+            },
+            {
+              "lang": "en",
+              "value": "May I have your Registration Number?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": [
+            "Thanks!!",
+            "Thank you!!"
+          ]
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": [
+            "You will receive a mail regarding your details!",
+            "That\u0027s a pleasure helping you!"
+          ]
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
