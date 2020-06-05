@@ -2,12 +2,13 @@
 
 ## Using ESP32 and Firebase
 
-Hardware:
+### Hardware:
   1. ESP32
   2. DHT22
   3. Ultra Sonic Sensor
   
-Software:
+  
+### Software:
   1. Google's Firebase
   2. MIT App Inventor
   3. Arduino IDE
