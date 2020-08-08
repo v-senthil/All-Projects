@@ -3,6 +3,8 @@
 #include <IOXhop_FirebaseESP32.h>                                                
 #include <DHT.h>                                                            
 
+char server[] = "<Your Local IP>";
+IPAddress ip(192,168,0,177); 
 
 #define FIREBASE_HOST = " "                          
 #define FIREBASE_AUTH = " "            
@@ -24,6 +26,9 @@ int buzzer = 10;
 long duration;
 int distance;
 int GarbageLevel;
+int flame_id;
+int gas_id;
+int motion_id;
 
 
 //Flame sensor
@@ -93,6 +98,7 @@ void loop() {
   if (flame == HIGH)
   {
     Serial.print("flame is absent \n");
+    flmae_id = 0;
     {
       digitalWrite(buzzer, HIGH);
       delay(1000);
@@ -102,6 +108,7 @@ void loop() {
   else 
   {
     Serial.print("flame is present \n");
+    flame_id = 1;
      digitalWrite(buzzer, LOW);
    
   }
@@ -118,6 +125,7 @@ void loop() {
       digitalWrite(redLed, HIGH);
       digitalWrite(buzzer, HIGH);
       digitalWrite(greenLed, LOW);
+      gas_id = 1;
       
     }
     else
@@ -125,6 +133,7 @@ void loop() {
       digitalWrite(redLed, LOW);
       digitalWrite(greenLed, HIGH);
       digitalWrite(buzzer, LOW);
+      gas_id = 0;
       
     }
     
@@ -147,6 +156,7 @@ void loop() {
       {
         Serial.println("Motion detected! \n");
         state = HIGH;
+        motion_id = 1;
       }
     }
     else 
@@ -155,6 +165,7 @@ void loop() {
       if (state == HIGH) 
       {
         Serial.println("Motion stopped! \n");
+        motion_id = 0;
         digitalWrite(buzzer, LOW);
         state = LOW;       
       }
@@ -194,9 +205,38 @@ void loop() {
   Serial.println(GarbageLevel);
   delay(1000);
   
+  Sending_To_phpmyadmindatabase();
 
-  Firebase.set("/Alerts/1111/Humidity", fireHumid);                                 
-  Firebase.set("/Alerts/1111/Temperature", fireTemp);                              
+  Firebase.set("/Alerts/1111/Humidity", h);                                 
+  Firebase.set("/Alerts/1111/Temperature", t);                              
   Firebase.set("/Alerts/1111/GarbageLevel", GarbageLevel);
+  Firebase.set("/Alerts/1111/Flame", flame_id);
+  Firebase.set("/Alerts/1111/Motion", motion_id);
+  Firebase.set("/Alerts/1111/Gas", gas_id);
+  
+  void Sending_To_phpmyadmindatabase()   //CONNECTING WITH MYSQL
+ {
+   if (client.connect(server, 80)) {
+    Serial.println("connected");
+    // Make a HTTP request:
+    Serial.print("GET /testcode/dht.php?humidity=");
+    client.print("GET /testcode/dht.php?humidity=");     //YOUR URL
+    Serial.println(humidityData);
+    client.print(humidityData);
+    client.print("&temperature=");
+    Serial.println("&temperature=");
+    client.print(temperatureData);
+    Serial.println(temperatureData);
+    client.print(" ");      //SPACE BEFORE HTTP/1.1
+    client.print("HTTP/1.1");
+    client.println();
+    client.println("Host: <Your Local IP>");
+    client.println("Connection: close");
+    client.println();
+  } else {
+    // if you didn't get a connection to the server:
+    Serial.println("connection failed");
+  }
+ }
   
 }
