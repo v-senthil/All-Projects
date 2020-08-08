@@ -25,7 +25,7 @@ const int echoPin = 14;
 int buzzer = 10;
 long duration;
 int distance;
-int GarbageLevel;
+int distanceLevel;
 int flame_id;
 int gas_id;
 int motion_id;
@@ -199,17 +199,17 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
   
   distance= duration*0.034/2;
-   GarbageLevel = ((22-distance)*100)/22;
+  distanceLevel = ((22-distance)*100)/22;
   
   Serial.print("Distance: ");
-  Serial.println(GarbageLevel);
+  Serial.println(diatanceLevel);
   delay(1000);
   
   Sending_To_phpmyadmindatabase();
 
   Firebase.set("/Alerts/1111/Humidity", h);                                 
   Firebase.set("/Alerts/1111/Temperature", t);                              
-  Firebase.set("/Alerts/1111/GarbageLevel", GarbageLevel);
+  Firebase.set("/Alerts/1111/GarbageLevel", distanceLevel);
   Firebase.set("/Alerts/1111/Flame", flame_id);
   Firebase.set("/Alerts/1111/Motion", motion_id);
   Firebase.set("/Alerts/1111/Gas", gas_id);
@@ -219,14 +219,30 @@ void loop() {
    if (client.connect(server, 80)) {
     Serial.println("connected");
     // Make a HTTP request:
-    Serial.print("GET /testcode/dht.php?humidity=");
-    client.print("GET /testcode/dht.php?humidity=");     //YOUR URL
+    Serial.print("GET /testcode/home_security/index.php?humidity=");
+    client.print("GET /testcode/home_security/index.php?humidity=");     //YOUR URL
     Serial.println(humidityData);
     client.print(humidityData);
     client.print("&temperature=");
     Serial.println("&temperature=");
     client.print(temperatureData);
     Serial.println(temperatureData);
+    client.print("&distance=");
+    Serial.println("&distance=");
+    client.print(distanceLevel);
+    Serial.println(distanceLevel);
+    client.print("&flame=");
+    Serial.println("&flame=");
+    client.print(flame_id);
+    Serial.println(flame_id);
+    client.print("&motion_id=");
+    Serial.println("&motion_id=");
+    client.print(motion_id);
+    Serial.println(motion_id);
+    client.print("&gas_id=");
+    Serial.println("&gas_id=");
+    client.print(gas_id);
+    Serial.println(gas_id); 
     client.print(" ");      //SPACE BEFORE HTTP/1.1
     client.print("HTTP/1.1");
     client.println();
