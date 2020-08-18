@@ -10,7 +10,7 @@ with open('data/images/3.jpg', 'rb') as fp:
         'https://api.platerecognizer.com/v1/plate-reader/',
         data=dict(regions=regions),  # Optional
         files=dict(upload=fp),
-        headers={'Authorization': 'Token 7c9ced42ce6ac2938556d5a4e8c52422ad1b5cea'})
+        headers={'Authorization': 'Token YOUR_API_KEY'})
 data = response.json()
 
 #JSON response
@@ -18,11 +18,11 @@ data = response.json()
 
 #Firebase Configuration
 config = {
-    "apiKey": "AIzaSyA34_Vuo2eh6WiRFY-A3mAPtunWJSUskrY",
-    "authDomain": "raspi-284115.firebaseapp.com",
-    "databaseURL": "https://raspi-284115.firebaseio.com",
-    "projectId": "raspi-284115",
-    "storageBucket": "raspi-284115.appspot.com"
+    "apiKey": "YOUR_API_KEY",
+    "authDomain": " ",
+    "databaseURL": "YOUR_DATABASE_URL",
+    "projectId": "YOUR_PROJECT_ID",
+    "storageBucket": " "
 }
 firebase = Firebase(config)
 db = firebase.database()
